@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CompanyCollection;
+use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CompanyController extends Controller
 {
@@ -14,7 +17,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(new CompanyCollection(Company::all()), Response::HTTP_OK);
     }
 
     /**
@@ -36,7 +39,7 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        //
+        return new CompanyResource($company);
     }
 
     /**

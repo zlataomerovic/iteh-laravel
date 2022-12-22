@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\JobOffer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class JobOfferSeeder extends Seeder
      */
     public function run()
     {
-        //
+        JobOffer::factory(15)->create();
     }
 }

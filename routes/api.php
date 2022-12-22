@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route::get('/companies', [\App\Http\Controllers\CompanyController::class, 'index']);
+Route::resource('/companies',\App\Http\Controllers\CompanyController::class)->only(['index','show']);
+Route::resource('/applicants',\App\Http\Controllers\ApplicantController::class)->only(['index','show']);
+Route::apiResource('/applications',\App\Http\Controllers\JobApplicationController::class);
+Route::apiResource('/joboffers',\App\Http\Controllers\JobOfferController::class);

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ApplicantCollection;
+use App\Http\Resources\ApplicantResource;
 use App\Models\Applicant;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ApplicantController extends Controller
 {
@@ -14,7 +17,8 @@ class ApplicantController extends Controller
      */
     public function index()
     {
-        //
+        //izmena
+        return response()->json(new ApplicantCollection(Applicant::all()), Response::HTTP_OK);
     }
 
     /**
@@ -36,7 +40,7 @@ class ApplicantController extends Controller
      */
     public function show(Applicant $applicant)
     {
-        //
+        return new ApplicantResource($Applicant);
     }
 
     /**

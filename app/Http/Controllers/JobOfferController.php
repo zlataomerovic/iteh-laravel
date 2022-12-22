@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\JobOfferCollection;
+use App\Http\Resources\JobOfferResource;
 use App\Models\JobOffer;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class JobOfferController extends Controller
 {
@@ -14,7 +17,7 @@ class JobOfferController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(new JobOfferCollection(JobOffer::all()), Response::HTTP_OK);
     }
 
     /**
@@ -36,7 +39,7 @@ class JobOfferController extends Controller
      */
     public function show(JobOffer $jobOffer)
     {
-        //
+        return new JobOfferResource($jobOffer);
     }
 
     /**

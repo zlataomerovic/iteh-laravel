@@ -17,7 +17,9 @@ class JobApplicationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'motivation_letter'=>$this->faker->text,
+            'job_offer_id'=>$this->faker->numberBetween(1,15),
+            'applicant_id'=>$this->faker->numberBetween(1,10),
         ];
     }
 }

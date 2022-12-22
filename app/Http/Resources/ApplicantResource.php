@@ -15,12 +15,13 @@ class ApplicantResource extends JsonResource
     public function toArray($request)
     {
         return [
-            
+
             'id'=> $this->id,
             'applicant'=>ucwords($this->name),
             'occupation'=>ucwords($this->occupation),
             'email'=>$this->email,
-            'number'=>$this->phone_number
+            'number'=>$this->phone_number,
+            'applications'=> new JobApplicationCollection($this::find($this->id)->applications)
 
         ];
     }

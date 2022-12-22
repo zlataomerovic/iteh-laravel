@@ -17,7 +17,9 @@ class CompanyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'pib'=> strval($this->faker->randomNumber($nbDigits = 5, $strict = false)),
+            'name'=> $this->faker->company,
+            'address'=> $this->faker->address
         ];
     }
 }

@@ -17,8 +17,9 @@ class CompanyResource extends JsonResource
         return [
             'id'=> $this->id,
             'company'=>ucwords($this->name),
-            'address'=>ucwords($this->address)
+            'address'=>ucwords($this->address),
+            'open_position'=> new JobOfferCollection($this::find($this->id)->offers)
         ];
      }
-    
+
 }

@@ -17,7 +17,10 @@ class ApplicantFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=> $this->faker->name(),
+            'email' => $this->faker->email(),
+            'occupation' => $this->faker->jobTitle(),
+            'phone_number' => $this->faker->phoneNumber()
         ];
     }
 }

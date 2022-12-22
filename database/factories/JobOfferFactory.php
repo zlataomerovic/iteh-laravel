@@ -17,7 +17,12 @@ class JobOfferFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'position'=>$this->faker->jobTitle,
+            'description'=>$this->faker->realText,
+            'available_slots'=>$this->faker->numberBetween($min=3,$max=15),
+            'status'=>$this->faker->boolean,
+            'company_id'=>$this->faker->numberBetween(1,5),
+
         ];
     }
 }

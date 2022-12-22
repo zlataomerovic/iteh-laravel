@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\JobApplicationCollection;
+use App\Http\Resources\JobApplicationResource;
 use App\Models\JobApplication;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class JobApplicationController extends Controller
 {
@@ -14,7 +17,7 @@ class JobApplicationController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(new JobApplicationCollection(JobApplication::all()), Response::HTTP_OK);
     }
 
     /**
@@ -36,7 +39,7 @@ class JobApplicationController extends Controller
      */
     public function show(JobApplication $jobApplication)
     {
-        //
+        return new JobApplicationResource($jobApplication);
     }
 
     /**
