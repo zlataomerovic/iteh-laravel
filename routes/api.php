@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Route::get('/companies', [\App\Http\Controllers\CompanyController::class, 'index']);
 Route::resource('/companies',\App\Http\Controllers\CompanyController::class)->only(['index','show']);
 Route::resource('/applicants',\App\Http\Controllers\ApplicantController::class)->only(['index','show']);
-Route::apiResource('/applications',\App\Http\Controllers\JobApplicationController::class);
-Route::apiResource('/joboffers',\App\Http\Controllers\JobOfferController::class);
+Route::apiResource('/job_applications',\App\Http\Controllers\JobApplicationController::class);
+Route::apiResource('/job_offers',\App\Http\Controllers\JobOfferController::class);
+//Route::resource('/job_applications',\App\Http\Controllers\JobApplicationController::class)->only(['index','show']);

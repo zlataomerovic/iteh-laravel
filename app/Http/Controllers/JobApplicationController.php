@@ -35,7 +35,7 @@ class JobApplicationController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\JobApplication  $jobApplication
-     * @return \Illuminate\Http\Response
+     * @return JobApplication
      */
     public function show(JobApplication $jobApplication)
     {
@@ -62,6 +62,11 @@ class JobApplicationController extends Controller
      */
     public function destroy(JobApplication $jobApplication)
     {
-        //
+        $test = $jobApplication;
+        $jobApplication->delete();
+        return response([
+           'message' => 'Job application deleted.',
+            '$test' => $test
+        ]);
     }
 }

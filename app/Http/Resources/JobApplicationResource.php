@@ -14,6 +14,10 @@ class JobApplicationResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        //print_r($this);
+        return [
+            'id'=> $this->id,
+            'motivation_letter'=>$this->motivation_letter
+            ];
     }
 }
